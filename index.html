@@ -1,0 +1,378 @@
+ا<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprehensive Grammar Quiz - Ch 1, 2, 5, 8</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f4f8;color:#1e293b;line-height:1.6}
+.container{max-width:1000px;margin:0 auto;padding:20px}
+.header{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:30px;border-radius:15px;text-align:center;margin-bottom:30px;box-shadow:0 10px 25px rgba(79,70,229,0.3)}
+.header h1{font-size:2em;margin-bottom:5px}
+.header h2{font-size:1.2em;opacity:0.9;margin-bottom:10px}
+.teacher-name{font-size:1.1em;background:rgba(255,255,255,0.2);padding:8px 15px;border-radius:20px;display:inline-block;margin-top:10px}
+.stats{display:flex;gap:15px;margin-bottom:30px;flex-wrap:wrap}
+.stat-card{flex:1;background:#fff;padding:20px;border-radius:12px;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,0.05);min-width:150px}
+.stat-card h3{font-size:2em;color:#4f46e5}
+.stat-card p{color:#64748b;font-size:0.9em}
+.section-title{font-size:1.8em;color:#4f46e5;margin:30px 0 20px;padding-bottom:10px;border-bottom:3px solid #4f46e5}
+.card{background:#fff;padding:25px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 6px rgba(0,0,0,0.05);border-left:5px solid #4f46e5;transition:0.3s}
+.card.correct{border-left-color:#10b981;background:#f0fdf4}
+.card.incorrect{border-left-color:#ef4444;background:#fef2f2}
+.q-text{font-size:1.1em;font-weight:600;margin-bottom:15px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{padding:12px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:0.2s;font-size:1em}
+.opt:hover{background:#e0e7ff;border-color:#4f46e5}
+.opt.selected{background:#4f46e5;color:#fff;border-color:#4f46e5}
+.opt.correct-opt{background:#d1fae5;border-color:#10b981;color:#065f46}
+.opt.wrong-opt{background:#fee2e2;border-color:#ef4444;color:#991b1b}
+input[type="text"]{width:100%;padding:12px;border:2px solid #e2e8f0;border-radius:8px;font-size:1em;margin-bottom:10px}
+input[type="text"]:focus{outline:none;border-color:#4f46e5}
+.btn{background:#4f46e5;color:#fff;border:none;padding:12px 25px;border-radius:8px;cursor:pointer;font-size:1em;font-weight:600;transition:0.2s}
+.btn:hover{background:#4338ca}
+.btn:disabled{background:#94a3b8;cursor:not-allowed}
+.feedback{margin-top:15px;padding:15px;border-radius:8px;display:none;animation:fadeIn 0.3s}
+.feedback.show{display:block}
+.feedback.correct-fb{background:#d1fae5;color:#065f46;border:1px solid #10b981}
+.feedback.incorrect-fb{background:#fee2e2;color:#991b1b;border:1px solid #ef4444}
+.fb-en{font-weight:600;margin-bottom:5px}
+.fb-ar{direction:rtl;text-align:right;font-weight:600;color:#7c2d12;background:#fff7ed;padding:8px;border-radius:5px;margin-top:8px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.options{grid-template-columns:1fr}.header h1{font-size:1.5em}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>English Grammar 2: Comprehensive Final Quiz</h1>
+<h2>Chapters 1, 2, 5, and 8</h2>
+<div class="teacher-name">Mr. Islam Saber <strong> </div>
+</div>
+
+<div class="stats">
+<div class="stat-card"><h3 id="scoreCorrect">0</h3><p>Correct / صحيح</p></div>
+<div class="stat-card"><h3 id="scoreTotal">0</h3><p>Answered / تمت الإجابة</p></div>
+<div class="stat-card"><h3 id="scorePercent">0%</h3><p>Accuracy / الدقة</p></div>
+</div>
+
+<h2 class="section-title">Part 1: Multiple Choice (100 Questions)</h2>
+<div id="mcqContainer"></div>
+
+<h2 class="section-title">Part 2: Put in Order (20 Questions)</h2>
+<div id="orderContainer"></div>
+
+<h2 class="section-title">Part 3: Correct the Mistakes (20 Questions)</h2>
+<div id="correctContainer"></div>
+</div>
+
+<script>
+// DATA
+const mcq = [
+// Ch1 (1-25)
+{q:"She ___ to school every day.",o:["go","goes","going","is go"],a:1,en:"Use 'goes' for third-person singular (she).",ar:"نستخدم 'goes' مع المفرد الغائب (she)."},
+{q:"Look! It ___ right now.",o:["rains","is raining","rain","are raining"],a:1,en:"Use present progressive for actions happening now.",ar:"نستخدم المضارع المستمر للأحداث التي تحدث الآن."},
+{q:"I ___ the answer to your question.",o:["am knowing","know","knows","is knowing"],a:1,en:"'Know' is a stative verb and is not used in progressive.",ar:"الفعل 'know' من الأفعال الحالة ولا يُستخدم في الصيغة المستمرة."},
+{q:"He ___ late for class.",o:["is always","always is","always","don't always"],a:0,en:"Frequency adverbs come AFTER the verb 'be'.",ar:"ظروف التكرار تأتي بعد فعل الكينونة (be)."},
+{q:"A: Do you like tea? B: Yes, ___.",o:["I like","I do","I am","I does"],a:1,en:"Short answers use the auxiliary verb, not the main verb.",ar:"الإجابات القصيرة تستخدم الفعل المساعد وليس الفعل الأصلي."},
+{q:"We ___ TV right now.",o:["don't watch","aren't watch","aren't watching","doesn't watching"],a:2,en:"Use 'are not + verb-ing' for present progressive negative.",ar:"نستخدم 'are not + فعل + ing' لنفي المضارع المستمر."},
+{q:"My father ___ a new car.",o:["is owning","own","owns","are owning"],a:2,en:"'Own' is a stative verb (possession).",ar:"الفعل 'own' فعل حالة (ملكية) ولا يقبل الاستمرار."},
+{q:"___ you ___ your homework every day?",o:["Do/does","Does/do","Do/do","Are/do"],a:2,en:"Use 'Do' with 'you' and the base verb.",ar:"نستخدم 'Do' مع الضمير 'you' والفعل في مصدره."},
+{q:"Listen! Someone ___ the piano.",o:["play","plays","is playing","are playing"],a:2,en:"'Listen!' indicates an action happening right now.",ar:"كلمة 'Listen!' تدل على حدث يحدث الآن."},
+{q:"She ___ coffee, but she loves tea.",o:["isn't liking","doesn't like","don't like","not likes"],a:1,en:"'Like' is a stative verb; use 'doesn't like' for she.",ar:"الفعل 'like' فعل حالة، ونستخدم 'doesn't like' مع she."},
+{q:"Water ___ at 100 degrees Celsius.",o:["boil","is boiling","boils","are boiling"],a:2,en:"Use simple present for general facts.",ar:"نستخدم المضارع البسيط للحقائق العامة."},
+{q:"I ___ about my vacation right now.",o:["think","am thinking","is thinking","thinks"],a:1,en:"'Think' means 'considering in mind' here, so it can be progressive.",ar:"الفعل 'think' هنا بمعنى يفكر في عقله، فيقبل الاستمرار."},
+{q:"They ___ to the park on Fridays.",o:["goes","is going","go","are going"],a:2,en:"Use simple present for habits (on Fridays).",ar:"نستخدم المضارع البسيط للعادات (on Fridays)."},
+{q:"My phone ___ in my bag.",o:["is belonging","belong","belongs","are belonging"],a:2,en:"'Belong' is a stative verb.",ar:"الفعل 'belong' فعل حالة ولا يقبل الاستمرار."},
+{q:"He ___ watches TV in the morning.",o:["always","usually","never","often"],a:2,en:"Logically, if he watches it at night, he 'never' watches it in the morning.",ar:"منطقياً، إذا كان يشاهده في الليل فهو 'أبداً' لا يشاهده في الصباح."},
+{q:"The students ___ English right now.",o:["speak","speaks","are speaking","is speaking"],a:2,en:"Use present progressive for 'right now'.",ar:"نستخدم المضارع المستمر لكلمة 'right now'."},
+{q:"A: Is Ali a doctor? B: No, ___.",o:["he isn't","he doesn't","he not","he don't"],a:0,en:"Short answer for 'Is' uses 'is/isn't'.",ar:"الإجابة القصيرة لسؤال 'Is' تستخدم 'is/isn't'."},
+{q:"I ___ a headache right now.",o:["am having","have","is having","having"],a:1,en:"'Have' for possession/feeling a state is stative.",ar:"الفعل 'have' بمعنى يعاني من حالة يُعامل معاملة الأفعال الحالة هنا."},
+{q:"She ___ to the gym every Tuesday.",o:["go","goes","is going","going"],a:1,en:"Use 'goes' for she (habit).",ar:"نستخدم 'goes' مع she للعادات."},
+{q:"We usually ___ to the mall on Fridays, but today we ___ home.",o:["go/stay","are going/are staying","go/are staying","goes/stays"],a:2,en:"Habit (simple present) vs. exception today (present progressive).",ar:"عادة (مضارع بسيط) مقابل استثناء اليوم (مضارع مستمر)."},
+{q:"Do you ___ understand this lesson?",o:["are","do","does","is"],a:1,en:"Use 'do' with 'you' for simple present questions.",ar:"نستخدم 'do' مع 'you' في أسئلة المضارع البسيط."},
+{q:"My parents ___ at home right now.",o:["don't","doesn't","aren't","isn't"],a:2,en:"Use 'aren't' for plural subject with 'be'.",ar:"نستخدم 'aren't' مع الفاعل الجمع مع فعل be."},
+{q:"He ___ happy with his grades.",o:["doesn't","isn't","aren't","don't"],a:1,en:"Use 'isn't' for he + adjective.",ar:"نستخدم 'isn' مع he + صفة."},
+{q:"The earth ___ around the sun.",o:["go","goes","is going","are going"],a:1,en:"General fact (simple present).",ar:"حقيقة علمية (مضارع بسيط)."},
+{q:"A: Does she live in Riyadh? B: Yes, ___.",o:["she does","she is","she do","she lives"],a:0,en:"Short answer for 'Does' uses 'does'.",ar:"الإجابة القصيرة لسؤال 'Does' تستخدم 'does'."},
+
+// Ch2 (26-50)
+{q:"My cousins ___ with us last month.",o:["was stay","staying","stayed","stay"],a:2,en:"Use simple past for completed past actions.",ar:"نستخدم الماضي البسيط للأحداث المكتملة في الماضي."},
+{q:"Did you ___ last weekend?",o:["work","worked","working","works"],a:0,en:"After 'did', use the base form of the verb.",ar:"بعد 'did' نستخدم الفعل في مصدره."},
+{q:"I ___ hungry all day yesterday.",o:["felt","feel","fell","fallen"],a:0,en:"Past of 'feel' is 'felt'.",ar:"الماضي من 'feel' هو 'felt'."},
+{q:"___ on time for school yesterday?",o:["Did you be","Were you","Are you","Do you"],a:1,en:"Use 'Were you' for past 'be' questions.",ar:"نستخدم 'Were you' لأسئلة الماضي من فعل be."},
+{q:"I ___ dinner last night.",o:["no eat","didn't eat","didn't ate","don't eat"],a:1,en:"Use 'didn't + base verb' for past negative.",ar:"نستخدم 'didn't + الفعل الأصلي' لنفي الماضي."},
+{q:"A car ___ suddenly in the middle of the road.",o:["stoped","stopped","stopping","stops"],a:1,en:"Double the 'p' for stop + ed.",ar:"نضاعف حرف 'p' في stop + ed."},
+{q:"While I ___ dinner, I heard the news.",o:["was cooking","cooked","am cooking","cook"],a:0,en:"Use past progressive for the longer ongoing action.",ar:"نستخدم الماضي المستمر للفعل الطويل المستمر."},
+{q:"Richard ___ late for class a lot, but now he comes on time.",o:["is used to","used to","used to be","use to"],a:2,en:"Use 'used to be' for a past state that changed.",ar:"نستخدم 'used to be' للحالة الماضية التي تغيرت."},
+{q:"She ___ to the store yesterday.",o:["go","goes","went","going"],a:2,en:"Past of 'go' is 'went'.",ar:"الماضي من 'go' هو 'went'."},
+{q:"They ___ see the movie last night.",o:["didn't","wasn't","weren't","don't"],a:0,en:"Use 'didn't' for past negative of action verbs.",ar:"نستخدم 'didn't' لنفي الماضي للأفعال العادية."},
+{q:"At 11:00 last night, Lara ___ her homework.",o:["does","did","was doing","is doing"],a:2,en:"Use past progressive for action in progress at a specific past time.",ar:"نستخدم الماضي المستمر لفعل كان مستمراً في وقت محدد في الماضي."},
+{q:"I ___ my keys while I ___ for the bus.",o:["lose/wait","lost/was waiting","was losing/waited","lost/waited"],a:1,en:"Short action (lost) interrupts long action (was waiting).",ar:"الفعل القصير (lost) يقاطع الفعل الطويل (was waiting)."},
+{q:"We ___ to the park yesterday.",o:["go","went","gone","going"],a:1,en:"Past of 'go' is 'went'.",ar:"الماضي من 'go' هو 'went'."},
+{q:"He ___ his homework two days ago.",o:["doesn't","didn't","wasn't","isn't"],a:1,en:"Use 'didn't' for simple past negative.",ar:"نستخدم 'didn't' لنفي الماضي البسيط."},
+{q:"___ you ___ TV last night?",o:["Did/watch","Do/watch","Were/watching","Are/watching"],a:0,en:"Use 'Did + subject + base verb' for past questions.",ar:"نستخدم 'Did + فاعل + فعل أساسي' لأسئلة الماضي."},
+{q:"I ___ a sandwich for lunch yesterday.",o:["eat","ate","eaten","eating"],a:1,en:"Past of 'eat' is 'ate'.",ar:"الماضي من 'eat' هو 'ate'."},
+{q:"She ___ here two hours ago.",o:["was","were","is","did"],a:0,en:"Use 'was' for singular subject in past.",ar:"نستخدم 'was' مع الفاعل المفرد في الماضي."},
+{q:"We ___ late for the meeting yesterday.",o:["was","were","are","did"],a:1,en:"Use 'were' for plural subject in past.",ar:"نستخدم 'were' مع الفاعل الجمع في الماضي."},
+{q:"Before I ___, I locked the door.",o:["leave","left","leaving","leaves"],a:1,en:"Use simple past in time clauses for completed actions.",ar:"نستخدم الماضي البسيط في جمل الوقت للأحداث المكتملة."},
+{q:"___ I was sleeping, the phone rang.",o:["When","While","Before","After"],a:1,en:"Use 'While' with past progressive.",ar:"نستخدم 'While' مع الماضي المستمر."},
+{q:"I ___ to the gym three times a week when I was young.",o:["use to go","used to go","use to going","used to going"],a:1,en:"Use 'used to + base verb' for past habits.",ar:"نستخدم 'used to + الفعل الأصلي' للعادات الماضية."},
+{q:"Did you ___ to the party last weekend?",o:["go","went","gone","going"],a:0,en:"After 'Did', use the base verb.",ar:"بعد 'Did' نستخدم الفعل الأصلي."},
+{q:"She ___ a new dress last week.",o:["buy","buys","bought","buying"],a:2,en:"Past of 'buy' is 'bought'.",ar:"الماضي من 'buy' هو 'bought'."},
+{q:"The students ___ in class yesterday.",o:["wasn't","weren't","didn't","don't"],a:1,en:"Use 'weren't' for plural subject with 'be'.",ar:"نستخدم 'weren't' مع الفاعل الجمع مع فعل be."},
+{q:"He ___ his phone while he ___ dinner.",o:["drops/eats","dropped/was eating","was dropping/ate","dropped/ate"],a:1,en:"Short action (dropped) during long action (was eating).",ar:"الفعل القصير (dropped) حدث أثناء الفعل الطويل (was eating)."},
+
+// Ch5 (51-75)
+{q:"A: Are you ready? B: Yes, ___.",o:["I'm","I am","I do","I ready"],a:1,en:"Do not contract 'am' in affirmative short answers.",ar:"لا نختصر 'am' في الإجابات القصيرة المثبتة."},
+{q:"___ did you leave the party? Because I was tired.",o:["What","Why","How come you","When"],a:1,en:"Use 'Why' when the answer starts with 'Because'.",ar:"نستخدم 'Why' عندما تبدأ الإجابة بـ 'Because'."},
+{q:"How come ___ home early yesterday?",o:["did you go","you went","do you go","you go"],a:1,en:"'How come' is followed by statement word order (no 'did').",ar:"'How come' يأتي بعدها ترتيب الجملة الخبرية (بدون did)."},
+{q:"___ broke the window? The cat did.",o:["Who","Whom","What","Who did"],a:0,en:"Use 'Who' as subject without 'did'.",ar:"نستخدم 'Who' كفاعل بدون 'did'."},
+{q:"___ did you see at the party? I saw Ali.",o:["Who","Whom","What","Who was"],a:1,en:"Use 'Who(m)' as object with 'did'.",ar:"نستخدم 'Who(m)' كمفعول مع 'did'."},
+{q:"A: What do you do? B: ___.",o:["I'm reading","I'm a software engineer","I do homework","I go home"],a:1,en:"'What do you do?' asks about occupation.",ar:"'What do you do?' تسأل عن الوظيفة."},
+{q:"I have a red and a blue shirt. ___ one do you want?",o:["What","Which","What kind of","Who"],a:1,en:"Use 'Which' for a limited choice.",ar:"نستخدم 'Which' للخيارات المحدودة."},
+{q:"___ shoes did you buy? Running shoes.",o:["Which","What","What kind of","Who"],a:2,en:"Use 'What kind of' to ask about a specific type.",ar:"نستخدم 'What kind of' للسؤال عن نوع محدد."},
+{q:"___ did you get to school? By bus.",o:["What","How","How far","How long"],a:1,en:"Use 'How' to ask about transportation.",ar:"نستخدم 'How' للسؤال عن وسيلة المواصلات."},
+{q:"___ do you go to the gym? Three times a week.",o:["How often","How many times a week","How long","Both A and B"],a:3,en:"Both 'How often' and 'How many times' can fit here.",ar:"كلاهما يناسب السؤال عن التكرار."},
+{q:"___ is it from Riyadh to Jeddah?",o:["How far","How long","How many","How often"],a:0,en:"Use 'How far' for distance.",ar:"نستخدم 'How far' للمسافة."},
+{q:"___ does it take to fly to Dubai? About 3 hours.",o:["How far","How long","How many","How often"],a:1,en:"Use 'How long' for length of time.",ar:"نستخدم 'How long' للمدة الزمنية."},
+{q:"How about ___ a movie tonight?",o:["watch","to watch","watching","watched"],a:2,en:"'How about' is followed by a noun or verb-ing.",ar:"'How about' يأتي بعدها اسم أو فعل + ing."},
+{q:"You are a student, ___?",o:["aren't you","don't you","are you","do you"],a:0,en:"Affirmative statement takes a negative tag.",ar:"الجملة المثبتة تأخذ ذيل منفي."},
+{q:"I am late, ___?",o:["am I not","aren't I","don't I","do I"],a:1,en:"The tag for 'I am' is 'aren't I?'.",ar:"الذيل الخاص بـ 'I am' هو 'aren't I?'."},
+{q:"___ do you spell 'coming'?",o:["What","How","Which","Who"],a:1,en:"Use 'How' to ask about spelling.",ar:"نستخدم 'How' للسؤال عن الإملاء."},
+{q:"A: Nice to meet you. B: ___.",o:["How do you do?","How are you doing?","What do you do?","How do you spell?"],a:0,en:"'How do you do?' is the formal response to 'Nice to meet you'.",ar:"'How do you do?' هي الرد الرسمي عند التعارف."},
+{q:"___ book is this? It's mine.",o:["Who's","Whose","Who","Whom"],a:1,en:"Use 'Whose' to ask about possession.",ar:"نستخدم 'Whose' للسؤال عن الملكية."},
+{q:"___ coming to the party tonight?",o:["Who's","Whose","Who","Whom"],a:0,en:"'Who's' means 'Who is'.",ar:"'Who's' تعني 'Who is'."},
+{q:"What time did you arrive? Last week.",o:["Correct","Incorrect: When did you arrive?","Incorrect: Where did you arrive?","Incorrect: Why did you arrive?"],a:1,en:"'What time' asks for clock time. 'When' asks for general time.",ar:"'What time' للساعة فقط. 'When' لأي وقت آخر."},
+{q:"___ miles is it to the airport?",o:["How far","How many","How long","How much"],a:1,en:"Use 'How many' with plural nouns (miles).",ar:"نستخدم 'How many' مع الأسماء الجمع (miles)."},
+{q:"He is a student, and ___ his brother.",o:["so is","so does","too is","is so"],a:0,en:"Use 'so + auxiliary + subject' for agreement.",ar:"نستخدم 'so + فعل مساعد + فاعل' للموافقة."},
+{q:"She didn't go to the party, and ___ I.",o:["didn't","neither did","either did","so did"],a:1,en:"Use 'neither + auxiliary + subject' for negative agreement.",ar:"نستخدم 'neither + فعل مساعد + فاعل' للموافقة المنفية."},
+{q:"___ you ever been to Paris?",o:["Do","Are","Have","Did"],a:2,en:"Use 'Have' with 'ever' for present perfect.",ar:"نستخدم 'Have' مع 'ever' للمضارع التام."},
+{q:"How ___ are you? I'm 20.",o:["many","much","old","long"],a:2,en:"Use 'How old' to ask about age.",ar:"نستخدم 'How old' للسؤال عن العمر."},
+
+// Ch8 (76-100)
+{q:"I bought apples ___ oranges.",o:[", and","and","; and",". and"],a:1,en:"No comma for two items connected by 'and'.",ar:"لا نستخدم فاصلة لعنصرين متصلين بـ 'and'."},
+{q:"My favorite colors are red, blue ___ green.",o:[", and","and","; and",". and"],a:0,en:"Use a comma before 'and' in a series of three or more.",ar:"نستخدم الفاصلة قبل 'and' في سلسلة من ثلاثة عناصر أو أكثر."},
+{q:"She was tired, ___ she went to bed early.",o:["and","but","so","or"],a:2,en:"Use 'so' to show a logical result.",ar:"نستخدم 'so' لإظهار نتيجة منطقية."},
+{q:"I went to bed, ___ I couldn't sleep.",o:["or","but","so","and"],a:1,en:"Use 'but' to show contrast.",ar:"نستخدم 'but' لإظهار التناقض."},
+{q:"Is a lemon sweet ___ sour?",o:["but","or","so","and"],a:1,en:"Use 'or' for choices in questions.",ar:"نستخدم 'or' للخيارات في الأسئلة."},
+{q:"He was sick, ___ he stayed home.",o:[", so","but","or",", and"],a:0,en:"Use ', so' to connect two complete sentences showing result.",ar:"نستخدم ', so' لربط جملتين كاملتين تظهران النتيجة."},
+{q:"I don't like coffee, but my husband ___.",o:["do","does","is","likes"],a:1,en:"Use auxiliary 'does' to avoid repeating the verb.",ar:"نستخدم الفعل المساعد 'does' لتجنب تكرار الفعل."},
+{q:"She isn't working today, but her sister ___.",o:["does","is","has","will"],a:1,en:"Match the auxiliary verb (is) from the first clause.",ar:"طابق الفعل المساعد (is) من الجملة الأولى."},
+{q:"Sue works hard, and Tom does ___.",o:["too","so","either","neither"],a:0,en:"Use 'too' at the end of an affirmative sentence.",ar:"نستخدم 'too' في نهاية الجملة المثبتة."},
+{q:"Sue works hard, and ___ does Tom.",o:["too","so","either","neither"],a:1,en:"Use 'so + aux + subject' for affirmative agreement.",ar:"نستخدم 'so + فعل مساعد + فاعل' للموافقة المثبتة."},
+{q:"Ann doesn't eat meat, and Joe doesn't ___.",o:["too","so","either","neither"],a:2,en:"Use 'either' at the end of a negative sentence.",ar:"نستخدم 'either' في نهاية الجملة المنفية."},
+{q:"Ann doesn't eat meat, and ___ does Joe.",o:["too","neither","either","so"],a:1,en:"Use 'neither + aux + subject' for negative agreement.",ar:"نستخدم 'neither + فعل مساعد + فاعل' للموافقة المنفية."},
+{q:"He drank water ___ he was thirsty.",o:["because","so","but","even though"],a:0,en:"Use 'because' to give a reason.",ar:"نستخدم 'because' لإعطاء السبب."},
+{q:"___ he was thirsty, he drank water.",o:["So","Because","But","Even though"],a:1,en:"'Because' clause at the beginning needs a comma.",ar:"جملة 'Because' في البداية تحتاج إلى فاصلة."},
+{q:"___ I was hungry, I didn't eat.",o:["Because","Even though","So","But"],a:1,en:"Use 'Even though' for an unexpected result.",ar:"نستخدم 'Even though' لنتيجة غير متوقعة."},
+{q:"Even though I was sick, ___ I went to work.",o:["but","and","so","(no word)"],a:3,en:"Do not use 'but' after 'Even though'.",ar:"لا نستخدم 'but' بعد 'Even though'."},
+{q:"I saw a cat, you saw a mouse.",o:["Correct","Incorrect: I saw a cat, and you saw a mouse.","Incorrect: I saw a cat; you saw a mouse.","Both B and C are correct"],a:3,en:"Comma splice is incorrect. Use 'and' or a period/semicolon.",ar:"الفاصلة وحدها خطأ. استخدم 'and' أو نقطة أو فاصلة منقوطة."},
+{q:"I like tea, but my husband doesn't ___.",o:["like","likes","liking","(no word)"],a:3,en:"The auxiliary 'doesn't' replaces the main verb.",ar:"الفعل المساعد 'doesn't' يغني عن الفعل الأصلي."},
+{q:"Because it was raining. We stayed home.",o:["Correct","Incorrect: Because it was raining, we stayed home.","Incorrect: It was raining, so we stayed home.","Both B and C are correct"],a:3,en:"'Because' clause cannot stand alone. B and C are correct fixes.",ar:"جملة 'Because' لا تقف وحدها. الخياران B و C صحيحان."},
+{q:"Although I like chocolate, ___ I can't eat it.",o:["but","and","so","(no word)"],a:3,en:"Do not use 'but' after 'Although'.",ar:"لا نستخدم 'but' بعد 'Although'."},
+{q:"The room was dark, ___ I didn't turn on a light.",o:["so","but","or","because"],a:1,en:"Use 'but' for an unexpected result.",ar:"نستخدم 'but' لنتيجة غير متوقعة."},
+{q:"I have a car, and my wife does ___.",o:["too","so","either","neither"],a:0,en:"Use 'too' for affirmative agreement at the end.",ar:"نستخدم 'too' للموافقة المثبتة في النهاية."},
+{q:"They aren't coming, and we aren't ___.",o:["too","so","either","neither"],a:2,en:"Use 'either' for negative agreement at the end.",ar:"نستخدم 'either' للموافقة المنفية في النهاية."},
+{q:"He is very rich, ___ he is not happy.",o:["and","so","but","or"],a:2,en:"Use 'but' to show contrast.",ar:"نستخدم 'but' لإظهار التناقض."},
+{q:"We can go to the movies, ___ we can stay home.",o:["but","or","so","because"],a:1,en:"Use 'or' for alternatives.",ar:"نستخدم 'or' للبدائل."}
+];
+
+const orderData = [
+// Ch1 (1-5)
+{q:"every / goes / she / to / gym / the",a:"she goes to the gym every",en:"Subject + Verb + Object + Time.",ar:"الفاعل + الفعل + المفعول + الزمن."},
+{q:"right now / studying / are / they / ?",a:"are they studying right now",en:"Question order: Am/Is/Are + Subject + Verb-ing.",ar:"ترتيب السؤال: Am/Is/Are + الفاعل + فعل + ing."},
+{q:"always / breakfast / at 7 / I / eat",a:"i always eat breakfast at 7",en:"Subject + Freq Adv + Verb + Object + Time.",ar:"الفاعل + ظرف التكرار + الفعل + المفعول + الزمن."},
+{q:"late / is / never / she",a:"she is never late",en:"Subject + Be + Freq Adv + Adjective.",ar:"الفاعل + Be + ظرف التكرار + الصفة."},
+{q:"belongs / this book / to / me",a:"this book belongs to me",en:"Subject + Verb + Preposition + Object.",ar:"الفاعل + الفعل + حرف الجر + المفعول."},
+
+// Ch2 (6-10)
+{q:"yesterday / to / went / I / store / the",a:"i went to the store yesterday",en:"Subject + Past Verb + Object + Time.",ar:"الفاعل + الفعل الماضي + المفعول + الزمن."},
+{q:"when / arrived / I / was / he / reading",a:"he was reading when i arrived",en:"Long action (past prog) + when + short action (simple past).",ar:"الفعل الطويل (ماضي مستمر) + when + الفعل القصير (ماضي بسيط)."},
+{q:"didn't / they / see / movie / the",a:"they didn't see the movie",en:"Subject + didn't + base verb + object.",ar:"الفاعل + didn't + الفعل الأصلي + المفعول."},
+{q:"used / to / live / we / here",a:"we used to live here",en:"Subject + used to + base verb.",ar:"الفاعل + used to + الفعل الأصلي."},
+{q:"while / sleeping / I / was / rang / phone / the",a:"the phone rang while i was sleeping",en:"Main clause + while + past progressive clause.",ar:"الجملة الرئيسية + while + جملة الماضي المستمر."},
+
+// Ch5 (11-15)
+{q:"did / where / go / you / last / night / ?",a:"where did you go last night",en:"Wh-word + did + subject + base verb + time?",ar:"أداة استفهام + did + فاعل + فعل أساسي + زمن؟"},
+{q:"time / does / start / what / movie / the / ?",a:"what time does the movie start",en:"What time + does + subject + base verb?",ar:"What time + does + فاعل + فعل أساسي؟"},
+{q:"broke / who / window / the / ?",a:"who broke the window",en:"Who (subject) + past verb + object?",ar:"Who (فاعل) + فعل ماضي + مفعول؟"},
+{q:"does / take / how / it / long / ?",a:"how long does it take",en:"How long + does + it + take?",ar:"How long + does + it + take?"},
+{q:"do / what / you / do / living / a / for / ?",a:"what do you do for a living",en:"What do you do for a living?",ar:"ما هي وظيفتك؟ (عبارة ثابتة)."},
+
+// Ch8 (16-20)
+{q:"tea / like / I / but / doesn't / husband / my",a:"i like tea but my husband doesn't",en:"Clause 1 + but + Clause 2 (with auxiliary).",ar:"الجملة الأولى + but + الجملة الثانية (مع الفعل المساعد)."},
+{q:"tired / she / so / was / bed / to / went",a:"she was tired so she went to bed",en:"Cause + , so + Result.",ar:"السبب + , so + النتيجة."},
+{q:"go / didn't / and / neither / I / he",a:"he didn't go and neither did i",en:"Negative 1 + and + neither + aux + Subject.",ar:"جملة منفية + and + neither + فعل مساعد + فاعل."},
+{q:"raining / because / was / we / it / home / stayed",a:"we stayed home because it was raining",en:"Main clause + because + Adverb clause.",ar:"الجملة الرئيسية + because + جملة الظروف."},
+{q:"sick / he / was / even / though / worked / he",a:"even though he was sick he worked",en:"Even though + Clause 1, + Clause 2.",ar:"Even though + الجملة الأولى + , + الجملة الثانية."}
+];
+
+const correctData = [
+// Ch1 (1-5)
+{q:"He don't like apples.",a:"he doesn't like apples",en:"Use 'doesn't' with he/she/it.",ar:"نستخدم 'doesn't' مع he/she/it."},
+{q:"I am knowing the answer.",a:"i know the answer",en:"'Know' is a stative verb; no -ing.",ar:"'Know' فعل حالة؛ لا نضيف له ing."},
+{q:"She always is late.",a:"she is always late",en:"Frequency adverbs come AFTER 'be'.",ar:"ظروف التكرار تأتي بعد فعل 'be'."},
+{q:"Do you plays football?",a:"do you play football",en:"After 'Do', use the base verb.",ar:"بعد 'Do' نستخدم الفعل في مصدره."},
+{q:"Yes, I'm.",a:"yes, i am",en:"Do not contract 'am' in short answers.",ar:"لا نختصر 'am' في الإجابات القصيرة."},
+
+// Ch2 (6-10)
+{q:"I didn't went to school.",a:"i didn't go to school",en:"After 'didn't', use the base verb.",ar:"بعد 'didn't' نستخدم الفعل الأصلي."},
+{q:"She was cook dinner.",a:"she was cooking dinner",en:"Past progressive: was/were + verb-ing.",ar:"الماضي المستمر: was/were + فعل + ing."},
+{q:"Three day ago, we visited.",a:"three days ago, we visited",en:"Use plural 'days' after numbers > 1.",ar:"نستخدم الجمع 'days' بعد الأرقام أكبر من 1."},
+{q:"While I walked, I saw him.",a:"while i was walking, i saw him",en:"'While' is followed by past progressive.",ar:"'While' يأتي بعدها ماضي مستمر."},
+{q:"He used to living here.",a:"he used to live here",en:"'Used to' is followed by the base verb.",ar:"'Used to' يأتي بعدها الفعل الأصلي."},
+
+// Ch5 (11-15)
+{q:"How come did you stay home?",a:"how come you stayed home",en:"'How come' takes statement word order (no 'did').",ar:"'How come' يأتي بعدها ترتيب جملة خبرية (بدون did)."},
+{q:"Who did come to the party?",a:"who came to the party",en:"When 'Who' is the subject, do not use 'did'.",ar:"عندما يكون 'Who' هو الفاعل، لا نستخدم 'did'."},
+{q:"How do you call this in Arabic?",a:"what do you call this in arabic",en:"Use 'What' with 'call', not 'How'.",ar:"نستخدم 'What' مع 'call' وليس 'How'."},
+{q:"How many years are you?",a:"how old are you",en:"Use 'How old' to ask about age.",ar:"نستخدم 'How old' للسؤال عن العمر."},
+{q:"There's enough money, isn't it?",a:"there's enough money, isn't there",en:"The tag for 'There is' is 'isn't there'.",ar:"الذيل الخاص بـ 'There is' هو 'isn't there'."},
+
+// Ch8 (16-20)
+{q:"Gold silver and copper are metals.",a:"gold, silver, and copper are metals",en:"Use commas to separate items in a series.",ar:"نستخدم الفواصل لفصل العناصر في السلسلة."},
+{q:"Even though I was sick, but I went to work.",a:"even though i was sick, i went to work",en:"Do not use 'but' after 'Even though'.",ar:"لا نستخدم 'but' بعد 'Even though'."},
+{q:"I had a cup of coffee, and so does my friend.",a:"i had a cup of coffee, and so did my friend",en:"Match the auxiliary verb tense (had -> did).",ar:"طابق زمن الفعل المساعد (had -> did)."},
+{q:"My roommate didn't go. Neither I went either.",a:"my roommate didn't go. neither did i",en:"Use 'neither + aux + subject' for agreement.",ar:"نستخدم 'neither + فعل مساعد + فاعل' للموافقة."},
+{q:"Although I like chocolate, but I can't eat it.",a:"although i like chocolate, i can't eat it",en:"Do not use 'but' after 'Although'.",ar:"لا نستخدم 'but' بعد 'Although'."}
+];
+
+// RENDER & LOGIC
+let correctCount = 0;
+let answeredCount = 0;
+
+function normalize(str) {
+    return str.toLowerCase().replace(/[.,?!]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function updateStats() {
+    document.getElementById('scoreCorrect').innerText = correctCount;
+    document.getElementById('scoreTotal').innerText = answeredCount;
+    let percent = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+    document.getElementById('scorePercent').innerText = percent + '%';
+}
+
+function showFeedback(card, isCorrect, correctAns, en, ar) {
+    const fb = card.querySelector('.feedback');
+    fb.classList.add('show');
+    if (isCorrect) {
+        card.classList.add('correct');
+        fb.classList.add('correct-fb');
+        fb.innerHTML = `<div class="fb-en">✅ Correct! ${en}</div><div class="fb-ar">✅ صحيح! ${ar}</div>`;
+    } else {
+        card.classList.add('incorrect');
+        fb.classList.add('incorrect-fb');
+        fb.innerHTML = `<div class="fb-en">❌ Incorrect. Correct answer: <strong>${correctAns}</strong>. ${en}</div><div class="fb-ar">❌ خطأ. الإجابة الصحيحة: <strong>${correctAns}</strong>. ${ar}</div>`;
+    }
+}
+
+// Render MCQ
+const mcqCont = document.getElementById('mcqContainer');
+mcq.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <div class="q-text">${idx + 1}. ${item.q}</div>
+        <div class="options">
+            ${item.o.map((opt, i) => `<div class="opt" data-idx="${i}">${opt}</div>`).join('')}
+        </div>
+        <button class="btn" style="margin-top:15px" onclick="checkMCQ(this, ${idx})">Check Answer</button>
+        <div class="feedback"></div>
+    `;
+    card.querySelectorAll('.opt').forEach(opt => {
+        opt.addEventListener('click', function() {
+            if (card.classList.contains('correct') || card.classList.contains('incorrect')) return;
+            card.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+    mcqCont.appendChild(card);
+});
+
+function checkMCQ(btn, idx) {
+    const card = btn.closest('.card');
+    if (card.classList.contains('correct') || card.classList.contains('incorrect')) return;
+    const selected = card.querySelector('.opt.selected');
+    if (!selected) { alert('Please select an option / الرجاء اختيار إجابة'); return; }
+    
+    const isCorrect = parseInt(selected.dataset.idx) === mcq[idx].a;
+    if (isCorrect) {
+        selected.classList.add('correct-opt');
+        correctCount++;
+    } else {
+        selected.classList.add('wrong-opt');
+        card.querySelectorAll('.opt')[mcq[idx].a].classList.add('correct-opt');
+    }
+    answeredCount++;
+    btn.disabled = true;
+    showFeedback(card, isCorrect, mcq[idx].o[mcq[idx].a], mcq[idx].en, mcq[idx].ar);
+    updateStats();
+}
+
+// Render Order
+const orderCont = document.getElementById('orderContainer');
+orderData.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <div class="q-text">${idx + 1}. Put in order: <strong>${item.q}</strong></div>
+        <input type="text" placeholder="Type the correct sentence here..." class="order-input">
+        <button class="btn" onclick="checkOrder(this, ${idx})">Check Answer</button>
+        <div class="feedback"></div>
+    `;
+    orderCont.appendChild(card);
+});
+
+function checkOrder(btn, idx) {
+    const card = btn.closest('.card');
+    if (card.classList.contains('correct') || card.classList.contains('incorrect')) return;
+    const input = card.querySelector('.order-input');
+    const userAns = normalize(input.value);
+    const correctAns = normalize(orderData[idx].a);
+    
+    if (!userAns) { alert('Please type an answer / الرجاء كتابة إجابة'); return; }
+    
+    const isCorrect = userAns === correctAns;
+    if (isCorrect) correctCount++;
+    answeredCount++;
+    btn.disabled = true;
+    input.disabled = true;
+    showFeedback(card, isCorrect, orderData[idx].a, orderData[idx].en, orderData[idx].ar);
+    updateStats();
+}
+
+// Render Correct
+const correctCont = document.getElementById('correctContainer');
+correctData.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <div class="q-text">${idx + 1}. Correct the mistake: <strong>${item.q}</strong></div>
+        <input type="text" placeholder="Type the corrected sentence here..." class="correct-input">
+        <button class="btn" onclick="checkCorrect(this, ${idx})">Check Answer</button>
+        <div class="feedback"></div>
+    `;
+    correctCont.appendChild(card);
+});
+
+function checkCorrect(btn, idx) {
+    const card = btn.closest('.card');
+    if (card.classList.contains('correct') || card.classList.contains('incorrect')) return;
+    const input = card.querySelector('.correct-input');
+    const userAns = normalize(input.value);
+    const correctAns = normalize(correctData[idx].a);
+    
+    if (!userAns) { alert('Please type an answer / الرجاء كتابة إجابة'); return; }
+    
+    const isCorrect = userAns === correctAns;
+    if (isCorrect) correctCount++;
+    answeredCount++;
+    btn.disabled = true;
+    input.disabled = true;
+    showFeedback(card, isCorrect, correctData[idx].a, correctData[idx].en, correctData[idx].ar);
+    updateStats();
+}
+</script>
+</body>
+</html>
